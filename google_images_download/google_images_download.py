@@ -522,7 +522,6 @@ def _get_all_items(page,main_directory,dir_name,limit):
             if arguments['metadata']:
                 print("\nImage Metadata" + str(object))
 
-            items.append(object)  # Append all the links in the list named 'Links'
 
             #download the images
             download_status,download_message,return_image_name = download_image(object['image_link'],object['image_format'],main_directory,dir_name,count)
@@ -534,6 +533,7 @@ def _get_all_items(page,main_directory,dir_name,limit):
                     download_status, download_message_thumbnail = download_image_thumbnail(object['image_thumbnail_url'],main_directory,dir_name,return_image_name)
                     print(download_message_thumbnail)
 
+                items.append(object)
                 count += 1
             else:
                 errorCount += 1
